@@ -1,12 +1,11 @@
-//Type représentant une recherche
-export type Recherche = {
+export interface RechercheData {
   id: number;
-  algorithm: 'DFS' | 'BFS' | 'Djikstra' | 'A*';
+  algorithm: string;
   grid_width: number;
   grid_height: number;
   start: [number, number];
   end: [number, number];
-  move_type: 'orthogonal' | 'diagonal';
+  move_type: string;
   path_length: number;
   visited_nodes: number;
   time_ns: number;

@@ -1,1 +1,38 @@
-<p>list-view works!</p>
+<div class="list-view">
+  <h1>Liste des Données</h1>
+  <p>Affichage de {{ donneesAffichees.length }} entrées sur {{ donnees.length }} au total.</p>
+
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Algorithme</th>
+      <th>Grille (Largeur x Hauteur)</th>
+      <th>Départ</th>
+      <th>Arrivée</th>
+      <th>Type de Déplacement</th>
+      <th>Longueur du Chemin</th>
+      <th>Noeuds Visités</th>
+      <th>Temps (ns)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of donneesAffichees">
+      <td>{{ item.id }}</td>
+      <td>{{ item.algorithm }}</td>
+      <td>{{ item.grid_width }} x {{ item.grid_height }}</td>
+      <td>[{{ item.start[0] }}, {{ item.start[1] }}]</td>
+      <td>[{{ item.end[0] }}, {{ item.end[1] }}]</td>
+      <td>{{ item.move_type }}</td>
+      <td>{{ item.path_length }}</td>
+      <td>{{ item.visited_nodes }}</td>
+      <td>{{ item.time_ns }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-buttons">
+    <button (click)="pagePrecedente()" [disabled]="pageActuelle === 1">Page Précédente</button>
+    <button (click)="pageSuivante()" [disabled]="pageActuelle === totalPages">Page Suivante</button>
+  </div>
+</div>
