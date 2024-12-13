@@ -1,0 +1,30 @@
+<div class="key-cards">
+  <div *ngFor="let item of algorithmCounts" class="card">
+    <h3>{{ item.name }}</h3>
+    <p>{{ item.value }} entrées</p>
+  </div>
+</div>
+
+<div class="charts">
+  <h2>Moyenne temps resolution algo</h2>
+  <ngx-charts-bar-vertical
+    [view]="[1200, 300]"
+    [results]="avgResolutionTimes"
+    [scheme]="colorScheme"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="true"
+    [showDataLabel]="true">
+  </ngx-charts-bar-vertical>
+
+  <h2>Noeuds moyens visités</h2>
+  <ngx-charts-bar-vertical
+    [view]="[1200, 300]"
+    [results]="avgVisitedNodes"
+    [scheme]="colorScheme"
+    [xAxis]="true"
+    [yAxis]="true"
+    [legend]="true"
+    [showDataLabel]="true">
+  </ngx-charts-bar-vertical>
+</div>
