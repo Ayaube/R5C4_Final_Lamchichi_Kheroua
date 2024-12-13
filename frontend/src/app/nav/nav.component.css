@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.85); /* Couleur de fond */
+  padding: 1rem; /* Espacement */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre */
+}
+
+.navbar a {
+  margin: 0 15px; /* Espacement entre les liens */
+  text-decoration: none; /* Supprime le soulignement des liens */
+  color: deepskyblue; /* Couleur du texte */
+  font-weight: bold; /* Texte en gras */
+  font-size: 1rem; /* Taille du texte */
+  transition: color 0.3s ease; /* Animation pour le survol */
+}
+
+.navbar a:hover {
+  color: deepskyblue; /* Couleur lors du survol */
+}
+
+.navbar a.active {
+  text-decoration: underline; /* Souligne le lien actif */
+  color: deepskyblue; /* Couleur du lien actif */
+}
