@@ -10,33 +10,13 @@ def get_all_searches():
     searches = load_searches()
     return Response(json.dumps(searches, ensure_ascii=False, indent=2), mimetype='application/json')
 
-# Route pour récupérer les données paginées
-@bp.route('/searches', methods=['GET'])
-def get_paginated_searches():
-    searches = load_searches()
-    # Parse les paramètres de query
-    page = int(request.args.get('page', 1))
-    limit = int(request.args.get('limit', 30))
 
-    # Obtenir les données paginées
-    paginated_data = paginate_data(searches, page, limit)
-
-    return Response(json.dumps(paginated_data, ensure_ascii=False, indent=2), mimetype='application/json')
-
-# Route pour création
-@bp.route('/searches', methods=['POST'])
-def create_search():
-    return Response(json.dumps({'error': 'Method not implemented'}, ensure_ascii=False, indent=2),
-                    status=501, mimetype='application/json')
-
-# Route pour modification
-@bp.route('/searches/<int:id>', methods=['PUT'])
-def update_search(id):
-    return Response(json.dumps({'error': 'Method not implemented'}, ensure_ascii=False, indent=2),
-                    status=501, mimetype='application/json')
-
-# Route pour suppression
-@bp.route('/searches/<int:id>', methods=['DELETE'])
-def delete_search(id):
-    return Response(json.dumps({'error': 'Method not implemented'}, ensure_ascii=False, indent=2),
-                    status=501, mimetype='application/json')
+# Route pour les méthodes non implémentées
+@bp.route('/searches', methods=['POST', 'PUT', 'DELETE'])
+@bp.route('/searches/<int:id>', methods=['POST', 'PUT', 'DELETE'])
+def method_not_implemented(id=None):
+    return Response(
+        json.dumps({'erreur': 'Méthode non implémentée'}, ensure_ascii=False, indent=2),
+        status=501,
+        mimetype='application/json'
+    )
